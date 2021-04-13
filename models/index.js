@@ -1,9 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose');
 
-const dburl = 'mongodb://localhost/:27017/escrow-calendar';
+const dbUrl = 'mongodb://localhost:27017/escrow-calendar';
 
-mongoose.connect(dburl, {
+mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useCreateIndex: true,
