@@ -70,9 +70,27 @@ const editOneHouse = (req, res) => {
   )
 }
 
+const deleteOnehouse = (req, res) => {
+  db.House.findByIdAndDelete(
+    req.params.houseId, (err, deleteHouse) => {
+      if(err) return res.status(500).json({
+        status: 500,
+        error: [{message: 'Could not delete House!'}],
+      });
+      res.json({
+        status: 200,
+        count: 1,
+        data: deleteHouse,
+        requestedAt: new Date().toLocaleString(),
+      })
+    }
+  )
+}
+
 module.exports = {
   createHouse,
   showAllHouses,
   showOneHouse,
-  editOneHouse
+  editOneHouse,
+  deleteOnehouse
 }

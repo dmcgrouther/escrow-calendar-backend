@@ -6,6 +6,6 @@ router.post('/', ctrl.house.createHouse);
 router.get('/', ctrl.house.showAllHouses);
 router.get('/:houseId', ctrl.house.showOneHouse);
 router.put('/:houseId', ctrl.house.editOneHouse);
-// router.delete('/:houseId', ctrl.events.deleteOnehouse);
+router.delete('/:houseId', ctrl.house.deleteOnehouse);
 
 module.exports = router;
