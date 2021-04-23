@@ -50,8 +50,29 @@ const showOneHouse = (req, res) => {
   })
 };
 
+const editOneHouse = (req, res) => {
+  db.House.findByIdAndUpdate(
+    req.params.houseId,
+    req.body,
+    {new: true}, (err, updatedHouse) => {
+      if(err) return res.status(500).json({
+        status: 500,
+        error: [{message: 'Something went wrong with editing!'}],
+      });
+
+      res.json({
+        status: 200,
+        count: 1,
+        data: updatedHouse,
+        requestedAt: new Date().toLocaleString()
+      });
+    }
+  )
+}
+
 module.exports = {
   createHouse,
   showAllHouses,
-  showOneHouse
+  showOneHouse,
+  editOneHouse
 }
