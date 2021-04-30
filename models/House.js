@@ -9,7 +9,11 @@ const HouseSchema = new Schema({
   description: {
     type: String, 
     required: true 
-  }
+  },
+  escrowHolder: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }]
   //list of dates. 
   //acceptance date --- date
   //initial deposit date --- date 
