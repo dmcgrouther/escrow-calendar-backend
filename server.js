@@ -12,11 +12,10 @@ const routes = require('./routes');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(session({
-  secret: 'okay keep your secrets',
-  // secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ mongoUrl: PORT }),
+  store: new MongoStore({ mongoUrl: process.env.LOCAL_DATABASE }),
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
