@@ -6,24 +6,65 @@ const HouseSchema = new Schema({
     type: String, 
     required: true
   },
+  zipCode: {
+    type: String,
+    required: true
+  },
+  stateHouseIsIn: {
+    type: String,
+    required: true
+  },
+
   description: {
     type: String, 
     required: true 
   },
+
   escrowHolder: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  }]
-  //list of dates. 
-  //acceptance date --- date
-  //initial deposit date --- date 
-  //inspection contingency removal date --- date
-  //loan contingency removal date --- date
-  //buyers final walk through date --- date
-  //signed docss with title company date --- date
-  //close of escrow date --- date
-  //date of client owning house --- date
-  //refer to person. someway. it needs to be related. to escrow agent. 
+    ref: 'User',
+    required: true
+  }],
+
+
+
+  pictureOfHouse: {
+    type: String, 
+    required: true 
+  },
+
+  acceptanceDate: {
+    type: Date,
+    required: true
+  },
+  initialDepositDate: {
+    type: Date,
+    required: true
+  },
+  inspectionContingencyRemovalDate: {
+    type: Date,
+    required: true
+  },
+  loanContingencyRemovalDate: {
+    type: Date,
+    required: true
+  },
+  buyersFinalWalkthroughDate: {
+    type: Date,
+    required: true
+  }, 
+  signedClosingPapersDate: {
+    type: Date,
+    required: true
+  },
+  closeOfEscrowDate: {
+    type: Date,
+    required: true
+  },
+  dateOfClientOwningHouse: {
+    type: Date,
+    required: true
+  }
 });
 
 const House = mongoose.model('House', HouseSchema);
